@@ -12,7 +12,7 @@ Chart.register([
 
 export default async function({canvas, params}: GraphCtx) {
 
-	return new Chart(
+	new Chart(
 	  //ctx,
 	  canvas, // TypeScript needs "as any" here
 	  {

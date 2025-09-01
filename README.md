@@ -18,6 +18,7 @@ $JSON_PARAMS | graph $FILE [$Wx$H] > $OUTPUT_FILE
 ```bash
 echo '{"data": [20,10,30]}' | calc  ./examples/calc.ts
 echo '{"data": [20,10,30]}' | graph ./examples/chartjs.ts > /tmp/graph.png
+echo '{"data": [20,10,30]}' | graph ./examples/chartjs++.ts > /tmp/graph.png
 ```
 
 ## Install
@@ -55,8 +56,3 @@ export default async function(ctx: GraphCtx) {
 <b>Context:</b>
 - `canvas` : HTML canvas you draw on.
 - `params` : received parameters you can use to build your graph.
-
-## TODO
-
-- call/create helpers (none/cache/signals)
-- ChartsHTML example.
