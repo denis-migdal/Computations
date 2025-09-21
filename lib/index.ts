@@ -1,13 +1,6 @@
-class ComputeSystem<T> {
+class ComputeSystem {
 
-    constructor(data: T) {
-        this.data = data;
-        // @ts-ignore
-        this.cache = {data};
-    }
-
-    readonly data: T;
-    private cache: Partial<Omit<this, "cache">>;
+    protected cache: Partial<Omit<this, "cache">> = {};
 
     static register<T>(this: {new(...args: any[]): T},
                            fct: (args: T) => void) {
@@ -26,10 +19,11 @@ class ComputeSystem<T> {
     }
 }
 
-/*
 //TEST...
-
-class Test extends ComputeSystem<{}> {}
+/*
+class Test extends ComputeSystem {
+    data: null = null;
+}
 
 interface Test {
     foo: number;
@@ -37,12 +31,12 @@ interface Test {
 interface Test {
     faa: number;
 }
-function foo({data}: {data: {}}) {
+function foo({data}: {data: null}) {
     return 4;
 }
 
-Test.addComputation(foo);
+Test.register(foo);
 
-const cs = new Test({});
+const cs = new Test();
 cs.foo;
-*/
+/**/
