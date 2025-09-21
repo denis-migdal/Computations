@@ -9,7 +9,7 @@ class ComputeSystem<T> {
     readonly data: T;
     private cache: Partial<Omit<this, "cache">>;
 
-    static addComputation<T>(this: {new(...args: any[]): T},
+    static register<T>(this: {new(...args: any[]): T},
                            fct: (args: T) => void) {
 
         const name = fct.name;
